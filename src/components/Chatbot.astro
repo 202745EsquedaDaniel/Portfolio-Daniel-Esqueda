@@ -1,8 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl } from '@/i18n/utils';
+import { ui, defaultLang } from '@/i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[defaultLang][key];
 ---
 
 <div id="chatbot-container" class="chatbot-container">
@@ -63,7 +64,7 @@ const t = useTranslations(lang);
 </div>
 
 <script>
-  import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+  import { getLangFromUrl } from '@/i18n/utils';
 
   document.addEventListener('astro:page-load', () => {
     const chatbotContainer = document.getElementById('chatbot-container') as HTMLElement;
@@ -99,7 +100,7 @@ const t = useTranslations(lang);
     }
 
     // Función para agregar mensaje
-    function addMessage(content, isBot = false) {
+    function addMessage(content: string, isBot = false) {
       const messageDiv = document.createElement('div');
       messageDiv.className = `message ${isBot ? 'bot-message' : 'user-message'}`;
       

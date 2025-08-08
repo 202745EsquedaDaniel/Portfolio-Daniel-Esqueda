@@ -17,7 +17,10 @@ import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { getEntry } from 'astro:content';
 const LANG = getLangFromUrl(Astro.url);
 const t = useTranslations(LANG);
-const entry = await getEntry('cv', LANG);
+if (!maybeEntry) {
+  throw new Error(`CV entry not found for lang: ${LANG}`);
+}
+const entry = maybeEntry;
 
 const { basics } = entry.data;
 const { name, label } = basics;
