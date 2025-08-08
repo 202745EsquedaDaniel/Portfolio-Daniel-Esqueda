@@ -112,8 +112,10 @@ const t = useTranslations(lang);
         </div>
       `;
       
-      chatbotMessages.appendChild(messageDiv);
-      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      if (chatbotMessages) {
+        chatbotMessages.appendChild(messageDiv);
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      }
     }
 
     // Función para enviar mensaje
