@@ -1,0 +1,439 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div id="chatbot-container" class="chatbot-container">
+  <!-- Botón flotante para abrir el chat -->
+  <button id="chatbot-toggle" class="chatbot-toggle" aria-label="Abrir chat">
+    <img src="/avatar.png" alt="Chatbot Avatar" class="chatbot-avatar" />
+    <div class="chatbot-indicator"></div>
+  </button>
+
+  <!-- Ventana del chat -->
+  <div id="chatbot-window" class="chatbot-window">
+    <!-- Header del chat -->
+    <div class="chatbot-header">
+      <div class="chatbot-header-info">
+        <img src="/avatar.png" alt="Chatbot Avatar" class="chatbot-header-avatar" />
+        <div>
+          <h3 class="chatbot-title">{t('chatbot.title')}</h3>
+          <span class="chatbot-status">{t('chatbot.status')}</span>
+        </div>
+      </div>
+      <button id="chatbot-close" class="chatbot-close" aria-label="Cerrar chat">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Área de mensajes -->
+    <div id="chatbot-messages" class="chatbot-messages">
+      <div class="message bot-message">
+        <img src="/avatar.png" alt="Bot" class="message-avatar" />
+        <div class="message-content">
+          <p>{t('chatbot.welcome')}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Área de entrada -->
+    <div class="chatbot-input-area">
+      <div class="chatbot-input-container">
+        <input 
+          type="text" 
+          id="chatbot-input" 
+          class="chatbot-input" 
+          placeholder={t('chatbot.placeholder')}
+          maxlength="500"
+        />
+        <button id="chatbot-send" class="chatbot-send" aria-label="Enviar mensaje">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+  document.addEventListener('astro:page-load', () => {
+    const chatbotContainer = document.getElementById('chatbot-container');
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotInput = document.getElementById('chatbot-input') as HTMLInputElement;
+    const chatbotSend = document.getElementById('chatbot-send');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+
+    let isOpen = false;
+
+    // Obtener traducciones
+    const lang = getLangFromUrl(new URL(window.location.href));
+    const translations = {
+      en: {
+        response: 'Thank you for your message. Soon I will have smarter responses with my personalized LLM. Meanwhile, you can check out my portfolio!'
+      },
+      es: {
+        response: 'Gracias por tu mensaje. Pronto tendré respuestas más inteligentes con mi LLM personalizado. ¡Mientras tanto, puedes revisar mi portafolio!'
+      }
+    };
+
+    // Función para abrir/cerrar el chat
+    function toggleChat() {
+      isOpen = !isOpen;
+      chatbotWindow.classList.toggle('open', isOpen);
+      chatbotToggle.classList.toggle('active', isOpen);
+      
+      if (isOpen) {
+        chatbotInput.focus();
+      }
+    }
+
+    // Función para agregar mensaje
+    function addMessage(content, isBot = false) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${isBot ? 'bot-message' : 'user-message'}`;
+      
+      const avatar = isBot ? '<img src="/avatar.png" alt="Bot" class="message-avatar" />' : '';
+      
+      messageDiv.innerHTML = `
+        ${avatar}
+        <div class="message-content">
+          <p>${content}</p>
+        </div>
+      `;
+      
+      chatbotMessages.appendChild(messageDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    // Función para enviar mensaje
+    function sendMessage() {
+      const message = chatbotInput.value.trim();
+      if (!message) return;
+
+      // Agregar mensaje del usuario
+      addMessage(message, false);
+      chatbotInput.value = '';
+
+      // Simular respuesta del bot (aquí puedes integrar tu LLM)
+      setTimeout(() => {
+        const response = translations[lang as keyof typeof translations]?.response || translations.en.response;
+        addMessage(response, true);
+      }, 1000);
+    }
+
+    // Event listeners
+    chatbotToggle?.addEventListener('click', toggleChat);
+    chatbotClose?.addEventListener('click', toggleChat);
+    chatbotSend?.addEventListener('click', sendMessage);
+    
+    chatbotInput?.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    // Cerrar chat al hacer clic fuera
+    document.addEventListener('click', (e) => {
+      if (isOpen && !chatbotContainer?.contains(e.target as Node)) {
+        toggleChat();
+      }
+    });
+  });
+</script>
+
+<style>
+  .chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: 'Inter Variable', sans-serif;
+  }
+
+  .chatbot-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--kbm-border);
+    background: var(--background);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .chatbot-toggle:hover {
+    border-color: var(--darker-hover-background);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .chatbot-toggle.active {
+    background: var(--hover-background);
+  }
+
+  .chatbot-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .chatbot-indicator {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background: var(--projects-active);
+    border-radius: 50%;
+    border: 2px solid var(--background);
+  }
+
+  .chatbot-window {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 300px;
+    height: 400px;
+    background: var(--background);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--kbm-border);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+  }
+
+  .chatbot-window.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .chatbot-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--kbm-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .chatbot-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .chatbot-header-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .chatbot-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black-text);
+    margin: 0;
+  }
+
+  .chatbot-status {
+    font-size: 12px;
+    color: var(--primary-text);
+  }
+
+  .chatbot-close {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-text);
+    transition: all 0.2s ease;
+  }
+
+  .chatbot-close:hover {
+    background: var(--hover-background);
+    color: var(--black-text);
+  }
+
+  .chatbot-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .message {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .user-message {
+    flex-direction: row-reverse;
+  }
+
+  .message-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .message-content {
+    max-width: 80%;
+  }
+
+  .message-content p {
+    margin: 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .bot-message .message-content p {
+    background: var(--hover-background);
+    color: var(--black-text);
+  }
+
+  .user-message .message-content p {
+    background: var(--projects-active);
+    color: white;
+  }
+
+  .chatbot-input-area {
+    padding: 16px;
+    border-top: 1px solid var(--kbm-border);
+  }
+
+  .chatbot-input-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .chatbot-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--kbm-border);
+    border-radius: 6px;
+    background: var(--background);
+    color: var(--black-text);
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .chatbot-input:focus {
+    border-color: var(--projects-active);
+  }
+
+  .chatbot-input::placeholder {
+    color: var(--primary-text);
+  }
+
+  .chatbot-send {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--projects-active);
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.2s ease;
+  }
+
+  .chatbot-send:hover {
+    background: var(--darker-hover-background);
+  }
+
+  .chatbot-send:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Scrollbar personalizado */
+  .chatbot-messages::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .chatbot-messages::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .chatbot-messages::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 2px;
+  }
+
+  .chatbot-messages::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+
+  /* Responsive - Solucionar interferencia en móviles */
+  @media (max-width: 768px) {
+    .chatbot-container {
+      bottom: 80px; /* Mover arriba para evitar interferencia con comandos */
+      right: 15px;
+    }
+
+    .chatbot-window {
+      width: calc(100vw - 30px);
+      height: 350px;
+      right: 0;
+      bottom: 60px;
+    }
+
+    .chatbot-toggle {
+      width: 44px;
+      height: 44px;
+    }
+
+    .chatbot-avatar {
+      width: 28px;
+      height: 28px;
+    }
+
+    .chatbot-indicator {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  /* Ocultar en impresión */
+  @media print {
+    .chatbot-container {
+      display: none !important;
+    }
+  }
+</style>

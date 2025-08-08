@@ -40,6 +40,11 @@ export const ui = {
     'commands.footer.mobile': 'Open the command palette',
     'commands.toggleTheme': 'Toggle theme',
     changeLanguage: 'Change language',
+    'chatbot.title': 'Daniel AI',
+    'chatbot.status': 'Online',
+    'chatbot.placeholder': 'Type your message...',
+    'chatbot.welcome': 'Hello! I\'m Daniel AI, your personal assistant. How can I help you today?',
+    'chatbot.response': 'Thank you for your message. Soon I will have smarter responses with my personalized LLM. Meanwhile, you can check out my portfolio!',
   },
   es: {
     title: 'Currículum de',
@@ -75,5 +80,10 @@ export const ui = {
     'commands.footer.mobile': 'Abrir la paleta de comandos',
     'commands.toggleTheme': 'Cambiar tema',
     changeLanguage: 'Cambiar idioma',
+    'chatbot.title': 'Daniel AI',
+    'chatbot.status': 'En línea',
+    'chatbot.placeholder': 'Escribe tu mensaje...',
+    'chatbot.welcome': '¡Hola! Soy Daniel AI, tu asistente personal. ¿En qué puedo ayudarte hoy?',
+    'chatbot.response': 'Gracias por tu mensaje. Pronto tendré respuestas más inteligentes con mi LLM personalizado. ¡Mientras tanto, puedes revisar mi portafolio!',
   },
 } as const;

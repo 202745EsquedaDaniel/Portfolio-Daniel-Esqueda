@@ -3,6 +3,7 @@ import Hero from '@/components/sections/Hero.astro';
 import Layout from '@/layouts/Layout.astro';
 
 import KeyboardManager from '@/components/KeyboardManager.astro';
+import Chatbot from '@/components/Chatbot.astro';
 import Section from '@/components/Section.astro';
 import About from '@/components/sections/About.astro';
 import Certificates from '@/components/sections/Certificates.astro';
@@ -43,6 +44,7 @@ const { name, label } = basics;
       ><SoftSkills data={entry.data} /></Section
     >
     <KeyboardManager data={entry.data} />
+    <Chatbot />
   </main>
 </Layout>
 
