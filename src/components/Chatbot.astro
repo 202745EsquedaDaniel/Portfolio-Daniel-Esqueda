@@ -66,13 +66,13 @@ const t = useTranslations(lang);
   import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
   document.addEventListener('astro:page-load', () => {
-    const chatbotContainer = document.getElementById('chatbot-container');
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotWindow = document.getElementById('chatbot-window');
-    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotContainer = document.getElementById('chatbot-container') as HTMLElement;
+    const chatbotToggle = document.getElementById('chatbot-toggle') as HTMLButtonElement;
+    const chatbotWindow = document.getElementById('chatbot-window') as HTMLElement;
+    const chatbotClose = document.getElementById('chatbot-close') as HTMLButtonElement;
     const chatbotInput = document.getElementById('chatbot-input') as HTMLInputElement;
-    const chatbotSend = document.getElementById('chatbot-send');
-    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotSend = document.getElementById('chatbot-send') as HTMLButtonElement;
+    const chatbotMessages = document.getElementById('chatbot-messages') as HTMLDivElement;
 
     let isOpen = false;
 
@@ -112,10 +112,8 @@ const t = useTranslations(lang);
         </div>
       `;
       
-      if (chatbotMessages) {
-        chatbotMessages.appendChild(messageDiv);
-        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-      }
+      chatbotMessages.appendChild(messageDiv);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
     }
 
     // Función para enviar mensaje
@@ -135,11 +133,11 @@ const t = useTranslations(lang);
     }
 
     // Event listeners
-    chatbotToggle?.addEventListener('click', toggleChat);
-    chatbotClose?.addEventListener('click', toggleChat);
-    chatbotSend?.addEventListener('click', sendMessage);
+    chatbotToggle.addEventListener('click', toggleChat);
+    chatbotClose.addEventListener('click', toggleChat);
+    chatbotSend.addEventListener('click', sendMessage);
     
-    chatbotInput?.addEventListener('keypress', (e) => {
+    chatbotInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         sendMessage();
       }
@@ -147,7 +145,7 @@ const t = useTranslations(lang);
 
     // Cerrar chat al hacer clic fuera
     document.addEventListener('click', (e) => {
-      if (isOpen && !chatbotContainer?.contains(e.target as Node)) {
+      if (isOpen && !chatbotContainer.contains(e.target as Node)) {
         toggleChat();
       }
     });
