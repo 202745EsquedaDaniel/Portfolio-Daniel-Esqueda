@@ -1,0 +1,204 @@
+{
+  "basics": {
+    "name": "Eduardo Esqueda",
+    "label": "Software Developer especializado en desarrollo Full-Stack, AI/ML y soluciones empresariales innovadoras",
+    "image": "/me.jpg",
+    "email": "eduardani84@gmail.com",
+    "phone": "+52 5649808602",
+    "url": "https://portfolio-daniel-esqueda.vercel.app/",
+    "summary": [
+      {
+        "paragraph": "Desarrollador Full-Stack especializado en la integración de inteligencia artificial en soluciones empresariales. Con más de 4 años de experiencia desarrollando aplicaciones web, aplicaciones móviles y sistemas empresariales, me enfoco en crear tecnologías que automatizan procesos de negocio y mejoran la eficiencia operacional."
+      },
+      {
+        "paragraph": "Mi experiencia técnica incluye el desarrollo de sistemas ERP multiplataforma,aplicaciones moviles que incorporan Inteligencia artificial o LLMs, implementación de chatbots con LLM y técnicas RAG en sitios web, sistemas de detección de objetos en tiempo real con computer vision, y arquitecturas escalables en la nube. He trabajado tanto en startups como en entornos industriales, siempre buscando soluciones innovadoras que generen impacto real."
+      },
+      {
+        "paragraph": "Mi mas grande sueño es poder aportar y dejar huella en la inteligencia artificial. Actualmente cuento con una tesis mi investigación sobre sistemas ERP potenciados por chatbots basados en LLM para automatización de procesos empresariales. Busco oportunidades como desarrollador Full-Stack o especialista en aplicaciones con IA donde pueda aplicar mi experiencia en tecnologías emergentes y contribuir al crecimiento de equipos innovadores."
+      }
+    ],
+    "location": {
+      "city": "Juárez",
+      "region": "Chihuahua"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "202745EsquedaDaniel",
+        "url": "https://github.com/202745EsquedaDaniel"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "eduardo-esqueda-145612227",
+        "url": "https://linkedin.com/in/eduardo-esqueda-145612227"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "MJ Studio",
+      "position": "Full-stack Developer",
+      "startDate": "2024-05-01",
+      "endDate": null,
+      "summary": "Desarrollo de sistema ERP multiplataforma usando Flutter, Firebase y AI. Desarrollé APIs y servicios backend con Express y TypeScript. Creé sitios web con Next.js/Astro.js con un chatbot basado en LLM utilizando OpenAI API para automatizar procesos de negocio; desarrollé sistemas POS multi-sucursal e implementé chatbots con técnicas RAG para resolver consultas de usuarios de manera inteligente.",
+      "highlights": [
+        "Sistema ERP completo con Flutter",
+        "Integración de AI con OpenAI API",
+        "Chatbots con RAG",
+        "Sistema POS multi-sucursal"
+      ],
+      "isRemote": true
+    },
+    {
+      "name": "Valeo",
+      "position": "Full-stack Developer",
+      "startDate": "2024-05-01",
+      "endDate": null,
+      "summary": "Desarrollo de backend con .NET (ASP.NET MVC) y Azure para la industria manufacturera. Implementé sistemas de seguimiento de procesos en tiempo real, gestión de inventarios y soluciones de detección de objetos usando Python, OpenCV y YOLOv11. También desarrollé aplicaciones Visual Basic integradas con middleware Python para interfaz con dispositivos DAQ USB-1024LS.",
+      "highlights": [
+        "Sistemas de detección de objetos en tiempo real",
+        "Aplicaciones escalables en la nube",
+        "Integración con dispositivos Industriales",
+        "Desarrollo y deployment de sistemas complejos"
+      ],
+      "isRemote": false
+    },
+    {
+      "name": "APIA Ingenieria",
+      "position": "Application and Backend Developer Intern",
+      "startDate": "2023-10-01",
+      "endDate": "2024-04-01",
+      "summary": "Implementé sistemas de gestión de gastos usando Node.js y Express.js. Diseñé flujos de autenticación seguros con Bearer tokens, utilicé funciones Lambda para tareas serverless y desarrollé interfaces de usuario con Flutter. Mantuve bases de datos SQL asegurando integridad y rendimiento óptimo.",
+      "highlights": [
+        "APIs seguras con autenticación",
+        "Funciones Lambda serverless",
+        "Desarrollo de UI con Flutter",
+        "Gestión de bases de datos SQL"
+      ],
+      "isRemote": false
+    },
+    {
+      "name": "Amm.co",
+      "position": "Developer, Technical Support, and Customer Service",
+      "startDate": "2020-12-01",
+      "endDate": "2023-07-01",
+      "summary": "Desarrollé y automaticé un sistema de gestión de inventarios utilizando React.js y Express.js, proporcionando además soporte técnico y atención al cliente.",
+      "highlights": [
+        "Sistema de inventarios automatizado",
+        "Desarrollo con React.js y Express.js"
+      ],
+      "isRemote": false
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidad Autónoma De Ciudad Juárez",
+      "area": "Ingeniería de Software - Tesis: Desarrollo de ERP que incorpora agentes LLM para mejorar la toma de decisiones y automatizaciones",
+      "startDate": "2020-08-01",
+      "endDate": "2025-08-01"
+    }
+  ],
+  "certificates": [],
+  "skills": [
+    {
+      "name": "Flutter"
+    },
+    {
+      "name": "React / Next.js"
+    },
+    {
+      "name": "Astro.js"
+    },
+    {
+      "name": "Vue.js"
+    },
+    {
+      "name": "TypeScript / JavaScript"
+    },
+    {
+      "name": "Node.js / Express.js"
+    },
+    {
+      "name": "Python / Django"
+    },
+    {
+      "name": "C# / .NET"
+    },
+    {
+      "name": "ASP.NET MVC"
+    },
+    {
+      "name": "OpenAI API"
+    },
+    {
+      "name": "GraphQL"
+    },
+    {
+      "name": "SQL / MongoDB"
+    }
+  ],
+  "softskills": [
+    {
+      "name": "Trabajo en equipo"
+    },
+    {
+      "name": "Comunicación efectiva"
+    },
+    {
+      "name": "Adaptabilidad"
+    },
+    {
+      "name": "Atención al detalle"
+    },
+    {
+      "name": "Resolución de problemas"
+    },
+    {
+      "name": "Pensamiento crítico"
+    },
+    {
+      "name": "Gestión del tiempo"
+    },
+    {
+      "name": "Innovación"
+    }
+  ],
+  "projects": [
+    {
+      "name": "00lar Solutions",
+      "isActive": true,
+      "description": "Sitio web empresarial donde presento mis soluciones de desarrollo y ofrezco servicios a empresas para crear páginas web y aplicaciones móviles. La plataforma también exhibe mis productos desarrollados como English Gym, sirviendo como portafolio comercial y punto de contacto para clientes potenciales.",
+      "highlights": [
+        "Sitio web empresarial",
+        "Servicios de desarrollo web y móvil",
+        "Portafolio de productos",
+        "Desarrollado con Next.js"
+      ],
+      "url": "https://v0-00lar-solutions-website.vercel.app/"
+    },
+    {
+      "name": "Connection GPT",
+      "isActive": true,
+      "description": "Aplicación móvil que utiliza respuestas generadas por IA para ayudar a los usuarios a responder mensajes de texto de manera eficiente y contextual. Desarrollada con enfoque en UX intuitiva y integración rápida de IA.",
+      "highlights": [
+        "Respuestas contextuales con IA",
+        "UX intuitiva",
+        "Integración en tiempo real",
+        "Disponible en Google Play Store"
+      ],
+      "url": "https://play.google.com/store/apps/details?id=com.oolar.englishgym&hl=es-MX"
+    },
+    {
+      "name": "English Gym",
+      "isActive": true,
+      "description": "Aplicación de aprendizaje de idiomas potenciada por IA que genera dinámicamente ejercicios personalizados de inglés, adaptándose al nivel y objetivos del usuario. Cuenta con una interfaz moderna y atractiva para una experiencia de aprendizaje motivadora.",
+      "highlights": [
+        "Ejercicios generados por IA",
+        "Personalización adaptativa",
+        "UI moderna y atractiva",
+        "Experiencia de aprendizaje gamificada"
+      ],
+      "url": "https://play.google.com/store/apps/details?id=com.oolar.connectionia&hl=es-MX"
+    }
+  ]
+}
