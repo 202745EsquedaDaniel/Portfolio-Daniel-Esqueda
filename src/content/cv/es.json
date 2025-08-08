@@ -98,7 +98,20 @@
       "endDate": "2025-08-01"
     }
   ],
-  "certificates": [],
+  "certificates": [
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "date": "2024-06-26",
+      "organization": "Amazon Web Services (AWS)",
+      "url": "https://www.aws.com"
+    },
+    {
+      "name": "AWS Technical Essentials",
+      "date": "2024-06-26", 
+      "organization": "Amazon Web Services (AWS)",
+      "url": "https://www.aws.com"
+    }
+  ],
   "skills": [
     {
       "name": "Flutter"
@@ -174,7 +187,8 @@
         "Portafolio de productos",
         "Desarrollado con Next.js"
       ],
-      "url": "https://v0-00lar-solutions-website.vercel.app/"
+      "url": "https://v0-00lar-solutions-website.vercel.app/",
+      "github": "https://github.com/202745EsquedaDaniel/00lar-solutions.git"
     },
     {
       "name": "Connection GPT",

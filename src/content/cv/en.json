@@ -1,20 +1,20 @@
 {
   "basics": {
-    "name": "Eduardo Daniel Esqueda Esquivel",
-    "label": "Full-Stack Developer with a Backend focus, specializing in web development and dedicated to creating impactful and functional digital experiences",
+    "name": "Eduardo Esqueda",
+    "label": "Software Developer specialized in Full-Stack development, AI/ML and innovative enterprise solutions",
     "image": "/me.jpg",
     "email": "eduardani84@gmail.com",
     "phone": "+52 5649808602",
-    "url": "https://ingcapadev.com",
+    "url": "https://portfolio-daniel-esqueda.vercel.app/",
     "summary": [
       {
-        "paragraph": "I'm a guy striving to make a mark in the web development world under the name INGCapaDev. I have experience in startup environments, where I've accelerated development and collaborating on client projects. My proactive problem-solving skills ensure optimal functionality, stunning design, and exceptional user experiences."
+        "paragraph": "Full-Stack Developer specialized in integrating artificial intelligence into enterprise solutions. With over 4 years of experience developing web applications, mobile applications, and enterprise systems, I focus on creating technologies that automate business processes and improve operational efficiency."
       },
       {
-        "paragraph": "Fueled by my passion for productivity, I create custom tools to boost efficiency, often becoming my own client. I share my journey and insights on my personal blog, which you can find linked in the projects section, merging my love for web development with my commitment to self-improvement."
+        "paragraph": "My technical experience includes developing multiplatform ERP systems, mobile applications that incorporate Artificial Intelligence or LLMs, implementing chatbots with LLM and RAG techniques on websites, real-time object detection systems with computer vision, and scalable cloud architectures. I have worked in both startups and industrial environments, always seeking innovative solutions that generate real impact."
       },
       {
-        "paragraph": "My goal is to simplify and enhance people's lives through digital innovation, cultivating and expanding the INGCapaDev brand, and creating a lasting impact on the web development community."
+        "paragraph": "My biggest dream is to contribute and leave a mark in artificial intelligence. I currently have a thesis on my research about ERP systems powered by LLM-based chatbots for business process automation. I seek opportunities as a Full-Stack developer or specialist in AI applications where I can apply my experience in emerging technologies and contribute to the growth of innovative teams."
       }
     ],
     "location": {
@@ -30,122 +30,147 @@
       {
         "network": "LinkedIn",
         "username": "eduardo-esqueda-145612227",
-        "url": "https://www.linkedin.com/in/eduardo-esqueda-145612227"
-      },
-      {
-        "network": "X",
-        "username": "@fta_capa",
-        "url": "https://x.com/fta_capa"
+        "url": "https://linkedin.com/in/eduardo-esqueda-145612227"
       }
     ]
   },
   "work": [
     {
-      "name": "Voltz",
-      "position": "Full-Stack Developer",
-      "startDate": "2023-10-02",
+      "name": "MJ Studio",
+      "position": "Full-stack Developer",
+      "startDate": "2024-05-01",
       "endDate": null,
-      "summary": "Development of a quoting and e-commerce tool for the sale of electrical materials, I collaborated on the design and implementation of various e-commerce views and interfaces. Additionally, I developed TypeScript scripts to manage our Firebase database at scale. I also designed APIs for comprehensive data collection analytics, implemented artificial intelligence features into a chatbot, and successfully redesigned the checkout process to significantly increase sales conversion rates.",
-      "highlights": [""],
+      "summary": "Development of multiplatform ERP system using Flutter, Firebase and AI. Developed APIs and backend services with Express and TypeScript. Created websites with Next.js/Astro.js with an LLM-based chatbot using OpenAI API to automate business processes; developed multi-branch POS systems and implemented chatbots with RAG techniques to intelligently resolve user queries.",
+      "highlights": [
+        "Complete ERP system with Flutter",
+        "AI integration with OpenAI API",
+        "Chatbots with RAG",
+        "Multi-branch POS system"
+      ],
       "isRemote": true
     },
     {
-      "name": "Luthor Solutions",
-      "position": "Web Developer",
-      "startDate": "2023-06-02",
-      "endDate": "2023-10-02",
-      "summary": "Developed scalable APIs with NestJS, integrating Neo4J, SQL, Firebase, and SQLite databases. Created microservices for mailing, authentication, reporting, and storage using Firebase and Cloudflare R2. Implemented Google Analytics for data tracking across multiple websites. Designed dynamic, responsive landing pages with React, NextJS, and Tailwind CSS, and translated Figma designs into interactive websites. Built complex web applications using React, Vite, and Redux Toolkit for advanced state management and side effects.",
-      "highlights": [""],
-      "isRemote": true
+      "name": "Valeo",
+      "position": "Full-stack Developer",
+      "startDate": "2024-05-01",
+      "endDate": null,
+      "summary": "Backend development with .NET (ASP.NET MVC) and Azure for the manufacturing industry. Implemented real-time process tracking systems, inventory management and object detection solutions using Python, OpenCV and YOLOv11. Also developed Visual Basic applications integrated with Python middleware to interface with USB-1024LS DAQ devices.",
+      "highlights": [
+        "Real-time object detection systems",
+        "Scalable cloud applications",
+        "Integration with Industrial devices",
+        "Development and deployment of complex systems"
+      ],
+      "isRemote": false
+    },
+    {
+      "name": "APIA Ingenieria",
+      "position": "Application and Backend Developer Intern",
+      "startDate": "2023-10-01",
+      "endDate": "2024-04-01",
+      "summary": "Implemented expense management systems using Node.js and Express.js. Designed secure authentication flows with Bearer tokens, used Lambda functions for serverless tasks and developed user interfaces with Flutter. Maintained SQL databases ensuring integrity and optimal performance.",
+      "highlights": [
+        "Secure APIs with authentication",
+        "Serverless Lambda functions",
+        "UI development with Flutter",
+        "SQL database management"
+      ],
+      "isRemote": false
+    },
+    {
+      "name": "Amm.co",
+      "position": "Developer, Technical Support, and Customer Service",
+      "startDate": "2020-12-01",
+      "endDate": "2023-07-01",
+      "summary": "Developed and automated an inventory management system using React.js and Express.js, while also providing technical support and customer service.",
+      "highlights": [
+        "Automated inventory system",
+        "Development with React.js and Express.js"
+      ],
+      "isRemote": false
     }
   ],
   "education": [
     {
-      "institution": "Universidad Politécnica de Sinaloa",
-      "area": "Information Technology Engineering",
-      "startDate": "2020-08-20",
-      "endDate": "2023-07-10"
+      "institution": "Universidad Autónoma De Ciudad Juárez",
+      "area": "Software Engineering - Thesis: Development of ERP that incorporates LLM agents to improve decision making and automation",
+      "startDate": "2020-08-01",
+      "endDate": "2025-08-01"
     }
   ],
   "certificates": [
     {
-      "name": "Building Neo4j Applications with TypeScript",
-      "date": "2024-01-26",
-      "organization": "Neo4j GraphAcademy",
-      "url": "https://graphacademy.neo4j.com/c/39a38074-f78a-4476-b185-224f6280781e/"
+      "name": "AWS Certified Cloud Practitioner",
+      "date": "2024-06-26",
+      "organization": "Amazon Web Services (AWS)",
+      "url": "https://www.aws.com"
     },
     {
-      "name": "Introduction to Web Development II",
-      "date": "2021-12-02",
-      "organization": "Google, Universidad de Alicante",
-      "url": "https://drive.google.com/file/d/16Q-7lxWhN3X8MnIWxV7z1I9OXaTXugwz/view?usp=sharing"
-    },
-    {
-      "name": "Introduction to Web Development I",
-      "date": "2021-11-25",
-      "organization": "Google, Universidad de Alicante",
-      "url": "https://drive.google.com/file/d/1D2yXuSt64IOwhvCbvreHXzRkIfhW3IGu/view?usp=sharing"
+      "name": "AWS Technical Essentials",
+      "date": "2024-06-26", 
+      "organization": "Amazon Web Services (AWS)",
+      "url": "https://www.aws.com"
     }
   ],
   "skills": [
     {
-      "name": "HTML"
-    },
-    {
-      "name": "CSS / Tailwind CSS"
-    },
-    {
-      "name": "JavaScript / TypeScript"
-    },
-    {
-      "name": "Git / GitHub"
-    },
-    {
-      "name": "Node.js / Express.js / NestJS"
-    },
-    {
-      "name": "SQL / SQLite / Drizzle"
-    },
-    {
-      "name": "Firebase"
-    },
-    {
-      "name": "Neo4J"
+      "name": "Flutter"
     },
     {
       "name": "React / Next.js"
     },
     {
-      "name": "Astro"
+      "name": "Astro.js"
     },
     {
-      "name": "Docker"
+      "name": "Vue.js"
     },
     {
-      "name": "Cloudflare / Vercel / Google Cloud"
+      "name": "TypeScript / JavaScript"
+    },
+    {
+      "name": "Node.js / Express.js"
+    },
+    {
+      "name": "Python / Django"
+    },
+    {
+      "name": "C# / .NET"
+    },
+    {
+      "name": "ASP.NET MVC"
+    },
+    {
+      "name": "OpenAI API"
+    },
+    {
+      "name": "GraphQL"
+    },
+    {
+      "name": "SQL / MongoDB"
     }
   ],
   "softskills": [
     {
-      "name": "Problem-solving"
-    },
-    {
-      "name": "Communication"
-    },
-    {
-      "name": "Leadership"
-    },
-    {
       "name": "Teamwork"
     },
     {
-      "name": "Critical thinking"
+      "name": "Effective Communication"
     },
     {
-      "name": "Growth mindset"
+      "name": "Adaptability"
     },
     {
-      "name": "Time management"
+      "name": "Attention to Detail"
+    },
+    {
+      "name": "Problem Solving"
+    },
+    {
+      "name": "Critical Thinking"
+    },
+    {
+      "name": "Time Management"
     },
     {
       "name": "Innovation"
@@ -153,44 +178,41 @@
   ],
   "projects": [
     {
-      "name": "Aura Series API",
+      "name": "00lar Solutions",
       "isActive": true,
-      "description": "API for Aura Series, a social media platform for sharing and discovering new series, with search and recommendation features.",
+      "description": "Business website where I present my development solutions and offer services to companies to create web pages and mobile applications. The platform also showcases my developed products like English Gym, serving as a commercial portfolio and point of contact for potential clients.",
       "highlights": [
-        "Massive user base",
-        "NestJS & Neo4J",
-        "Mailing",
-        "Authentication"
+        "Business website",
+        "Web and mobile development services",
+        "Product portfolio",
+        "Built with Next.js"
       ],
-      "url": "https://www.auraseries.com/"
+      "url": "https://v0-00lar-solutions-website.vercel.app/",
+      "github": "https://github.com/202745EsquedaDaniel/00lar-solutions.git"
     },
     {
-      "name": "Personal Blog",
+      "name": "Connection GPT",
       "isActive": true,
-      "description": "My personal blog where I share my experiences and knowledge about web development, productivity and other interesting topics.",
+      "description": "Mobile application that uses AI-generated responses to help users reply to text messages efficiently and contextually. Developed with a focus on intuitive UX and rapid AI integration.",
       "highlights": [
-        "Multilanguage",
-        "SEO optimized",
-        "100/100 Lighthouse score",
-        "PWA Ready",
-        "Astro"
+        "Contextual AI responses",
+        "Intuitive UX",
+        "Real-time integration",
+        "Available on Google Play Store"
       ],
-      "url": "https://blog.ingcapadev.com/",
-      "github": "https://github.com/INGCapaDev/my-blog"
+      "url": "https://play.google.com/store/apps/details?id=com.oolar.englishgym&hl=es-MX"
     },
     {
-      "name": "JB Baseball Game",
+      "name": "English Gym",
       "isActive": true,
-      "description": "A baseball game simulator, which allow you to mark all the plays available in a baseball game and save a record of the players' plays.",
+      "description": "AI-powered language learning application that dynamically generates personalized English exercises, adapting to the user's level and goals. Features a modern and attractive interface for a motivating learning experience.",
       "highlights": [
-        "Fullscreen oriented",
-        "Sound effects",
-        "Complex state management",
-        "React",
-        "Redux Toolkit"
+        "AI-generated exercises",
+        "Adaptive personalization",
+        "Modern and attractive UI",
+        "Gamified learning experience"
       ],
-      "url": "https://baseball-game-react.vercel.app/",
-      "github": "https://github.com/INGCapaDev/baseball-game-react"
+      "url": "https://play.google.com/store/apps/details?id=com.oolar.connectionia&hl=es-MX"
     }
   ]
 }
