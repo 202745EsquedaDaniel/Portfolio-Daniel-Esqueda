@@ -9,7 +9,7 @@ import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import GitHub from '@icons/GitHub.astro';
 import LinkedIn from '@icons/LinkedIn.astro';
 import Mail from '@icons/Mail.astro';
-import Phone from '@icons/Phone.astro';
+import WhatsApp from '@icons/WhatsApp.astro';
 import WorldMap from '@icons/WorldMap.astro';
 import Language from '@icons/Language.astro';
 import X from '@icons/X.astro';
@@ -31,6 +31,10 @@ const printInfo = [email, phone, linkedInfo?.url, githubInfo?.url]
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const redirectURL = lang === 'en' ? '/es' : '/';
+
+// Crear enlace de WhatsApp con el número mexicano
+const whatsappNumber = phone?.replace(/\s/g, '').replace('+52', '52') || '525649808602';
+const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 ---
 
 <div class='container'>
@@ -60,11 +64,11 @@ const redirectURL = lang === 'en' ? '/es' : '/';
       {
         phone && (
           <a
-            href={`tel:${phone}`}
-            title={`${t('hero.phone')} ${name} ${t('hero.phoneFollowing')} ${phone}`}
+            href={whatsappUrl}
+            title={`${t('hero.whatsapp')} ${name} ${t('hero.whatsappFollowing')} ${phone}`}
             target='_blank'
             rel='noopener noreferrer'>
-            <Phone />
+            <WhatsApp />
           </a>
         )
       }

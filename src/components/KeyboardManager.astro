@@ -88,6 +88,7 @@ const dataInfo = [printInfo, languageInfo, toggleThemeInfo, ...socialInfo];
 <script>
   import { navigate } from 'astro:transitions/client';
   import HotKeyPad from 'hotkeypad';
+  
   document.addEventListener('astro:page-load', () => {
     interface Info {
       id: string;
@@ -99,7 +100,9 @@ const dataInfo = [printInfo, languageInfo, toggleThemeInfo, ...socialInfo];
       handler?: () => void;
     }
 
+    // Configuración simple de HotKeyPad
     const hotkeypad = new HotKeyPad();
+    
     const footer = document.querySelector('.commands');
 
     footer?.addEventListener('click', () => {
@@ -164,6 +167,26 @@ const dataInfo = [printInfo, languageInfo, toggleThemeInfo, ...socialInfo];
     });
 
     hotkeypad.setCommands(data);
+    
+    // Agregar listener personalizado para Enter
+    document.addEventListener('keydown', (event) => {
+      // Solo procesar si hotkeypad está abierto
+      if (event.key === 'Enter' && hotkeypad.instance.classList.contains('open')) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        // Buscar el elemento seleccionado actualmente
+        const selectedItem = hotkeypad.instance.querySelector('.selected, [data-selected="true"], .hotkeypad-item.selected');
+        if (selectedItem) {
+          // Simular click en el elemento seleccionado
+          selectedItem.dispatchEvent(new MouseEvent('click', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+          }));
+        }
+      }
+    });
   });
 </script>
 
