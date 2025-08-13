@@ -200,11 +200,18 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
     const chatbotMessages = document.getElementById('chatbot-messages') as HTMLDivElement;
     const quickActionBtns = document.querySelectorAll('.quick-action-btn') as NodeListOf<HTMLButtonElement>;
 
-    let isOpen = false;
+    let isOpen = true;
     let isLoading = false;
 
     // Inicializar chatbot con tu API
     const chatbot = new InterviewChatbot('https://tui6gzcxaa.execute-api.us-east-2.amazonaws.com/prod');
+
+    // Aplicar estado abierto por defecto
+    chatbotWindow.classList.add('open');
+    chatbotToggle.classList.add('active');
+    
+    // Enfocar el input del chat ya que está abierto por defecto
+    chatbotInput.focus();
 
     // Obtener traducciones
     const lang = getLangFromUrl(new URL(window.location.href));

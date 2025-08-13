@@ -9,7 +9,7 @@ export const ui = {
   en: {
     title: 'Resume of',
     description:
-      "Explore Alvaro's professional experience, projects, and education through this clean, minimalistic, and print-ready web resume. Discover a comprehensive overview of skills, accomplishments, and expertise in web development. Whether you're looking to collaborate on a project or learn more about Alvaro's career journey, you'll find detailed information and easy navigation throughout the site.",
+      "Explore Daniel's professional experience, projects, and education through this clean, minimalistic, and print-ready web resume. Discover a comprehensive overview of skills, accomplishments, and expertise in web development. Whether you're looking to collaborate on a project or learn more about Alvaro's career journey, you'll find detailed information and easy navigation throughout the site.",
     'section.about': 'About',
     'section.experience': 'Experience',
     'section.education': 'Education',
