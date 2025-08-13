@@ -107,12 +107,15 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
 
   // Clase del chatbot de entrevistas
   class InterviewChatbot {
-    constructor(apiUrl) {
+    private apiUrl: string;
+    private conversationId: string | null;
+
+    constructor(apiUrl: string) {
       this.apiUrl = apiUrl;
       this.conversationId = localStorage.getItem('conversationId') || null;
     }
 
-    async sendMessage(message, userId = null) {
+    async sendMessage(message: string, userId: string | null = null) {
       try {
         const response = await fetch(`${this.apiUrl}/chat`, {
           method: 'POST',
@@ -132,7 +135,9 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
           // Guardar conversationId para futuras interacciones
           if (data.conversationId) {
             this.conversationId = data.conversationId;
-            localStorage.setItem('conversationId', this.conversationId);
+            if (this.conversationId) {
+              localStorage.setItem('conversationId', this.conversationId);
+            }
           }
           
           return {
@@ -148,7 +153,7 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
         console.error('Error:', error);
         return {
           success: false,
-          error: error.message
+          error: error instanceof Error ? error.message : 'Unknown error'
         };
       }
     }
@@ -166,13 +171,21 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
           ? { success: true, messages: data.messages }
           : { success: false, error: data.error };
       } catch (error) {
-        return { success: false, error: error.message };
+        return { 
+          success: false, 
+          error: error instanceof Error ? error.message : 'Unknown error'
+        };
       }
     }
 
     clearConversation() {
       this.conversationId = null;
       localStorage.removeItem('conversationId');
+    }
+
+    // Método público para verificar si hay conversación activa
+    hasConversation(): boolean {
+      return this.conversationId !== null;
     }
   }
 
@@ -220,7 +233,7 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
     }
 
     // Función para agregar mensaje
-    function addMessage(content: string, isBot = false, functionResults = null, isError = false) {
+    function addMessage(content: string, isBot = false, functionResults: any[] | null = null, isError = false) {
       const messageDiv = document.createElement('div');
       messageDiv.className = `message ${isBot ? 'bot-message' : 'user-message'}`;
       
@@ -324,7 +337,7 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
       messageContent.appendChild(messageParagraph);
       
       // Agregar resultados de funciones si existen
-      if (functionResults && functionResults.length > 0) {
+      if (functionResults && Array.isArray(functionResults) && functionResults.length > 0) {
         const functionResultsDiv = document.createElement('div');
         functionResultsDiv.className = 'function-results';
         functionResultsDiv.style.cssText = `
@@ -336,7 +349,7 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
           border: 1px solid rgba(59, 130, 246, 0.15);
         `;
         
-        functionResults.forEach((result, index) => {
+        functionResults.forEach((result: any) => {
           if (result.function === 'schedule_interview' && result.result.success) {
             const resultDiv = document.createElement('div');
             resultDiv.className = 'function-result success';
@@ -576,7 +589,9 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
       messageContent.appendChild(botInfo);
       
       const messageParagraph = document.createElement('p');
-      messageParagraph.textContent = t('chatbot.welcome');
+      messageParagraph.textContent = lang === 'es' ? 
+        '¡Hola! Soy Daniel GPT, un chatbot desarrollado con arquitectura RAG. Puedo ayudarte con información sobre su perfil profesional y también puedo agendar entrevistas. ¿En qué puedo ayudarte hoy?' :
+        'Hello! I\'m Daniel GPT, a chatbot developed with RAG architecture. I can help you with information about Daniel\'s professional profile and also schedule interviews. How can I help you today?';
       messageParagraph.style.cssText = `
         background: var(--hover-background);
         color: var(--black-text);
@@ -669,14 +684,14 @@ const t = (key: keyof (typeof ui)[typeof defaultLang]) => ui[lang][key] || ui[de
     });
 
     // Cargar historial de conversación si existe
-    if (chatbot.conversationId) {
+    if (chatbot.hasConversation()) {
       chatbot.getHistory().then(result => {
-        if (result.success && result.messages && result.messages.length > 1) {
+        if (result.success && result.messages && Array.isArray(result.messages) && result.messages.length > 1) {
           // Limpiar mensaje de bienvenida
           chatbotMessages.innerHTML = '';
           
           // Agregar mensajes del historial
-          result.messages.forEach(msg => {
+          result.messages.forEach((msg: any) => {
             addMessage(msg.content, msg.role === 'assistant');
           });
         }

@@ -2,7 +2,6 @@
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/jetbrains-mono';
-import { ViewTransitions } from 'astro:transitions';
 interface Props {
   title: string;
   noindex?: boolean;
@@ -47,8 +46,6 @@ const t = useTranslations(lang);
     <title>{title}</title>
 
     {noindex && <meta name='robots' content='noindex,nofollow' />}
-
-    <ViewTransitions />
   </head>
   <body>
     <slot />
