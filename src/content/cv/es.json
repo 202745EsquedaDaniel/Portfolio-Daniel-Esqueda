@@ -178,6 +178,20 @@
   ],
   "projects": [
     {
+      "name": "Daniel GPT - Chatbot IA para Portafolio",
+      "isActive": true,
+      "description": "Chatbot avanzado con IA integrado en mi sitio web de portafolio, construido con arquitectura RAG (Retrieval-Augmented Generation). Incluye capacidades de consulta de documentos, ejecución de funciones para agendar entrevistas, e integración perfecta con servicios AWS. Frontend desarrollado con stack tecnológico moderno: Astro.js, TypeScript, Tailwind CSS, soporte i18n y diseño responsive. Demuestra implementación de IA de vanguardia, habilidades de arquitectura en la nube y prácticas modernas de desarrollo frontend.",
+              "highlights": [
+          "Arquitectura RAG con OpenAI",
+          "AWS Amplify & DynamoDB",
+          "Astro.js & TypeScript",
+          "Tailwind CSS & i18n",
+          "Embeddings vectoriales & funciones"
+        ],
+      "url": "https://portfolio-daniel-esqueda.vercel.app/",
+      "github": "https://github.com/202745EsquedaDaniel/Portfolio-Daniel-Esqueda"
+    },
+    {
       "name": "00lar Solutions",
       "isActive": true,
       "description": "Sitio web empresarial donde presento mis soluciones de desarrollo y ofrezco servicios a empresas para crear páginas web y aplicaciones móviles. La plataforma también exhibe mis productos desarrollados como English Gym, sirviendo como portafolio comercial y punto de contacto para clientes potenciales.",
